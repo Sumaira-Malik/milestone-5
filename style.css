@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d6501b;
+    background-image: url(https://www.shutterstock.com/shutterstock/photos/575429470/display_1500/stock-photo-beautiful-pink-rose-background-575429470.jpg);
+  }
+  
+.container {
+    width: 60%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form {
+    background-color: #ffffffa8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(131, 127, 127, 0.1);
+    margin-bottom: 20px;
+}
+
+form input, form textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(255, 196, 241, 0.422);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #7ee497;
+}
+
+#resume {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(189, 183, 183, 0.1);
+}
