@@ -19,40 +19,61 @@ var generateResumeButton = document.getElementById('generate-resume');
 var shareResumeButton = document.getElementById('share-resume');
 var downloadPdfButton = document.getElementById('download-pdf');
 // Generate Resume functionality
-generateResumeButton.addEventListener('click', function () {
-    // Fill resume with input data
-    resumeName.textContent = nameInput.value || 'Not provided';
-    resumeEmail.textContent = emailInput.value || 'Not provided';
-    resumeDegree.textContent = degreeInput.value || 'Not provided';
-    resumeSchool.textContent = schoolInput.value || 'Not provided';
-    resumeGradYear.textContent = gradYearInput.value || 'Not provided';
-    resumeWorkExperience.textContent = workExperienceInput.value || 'Not provided';
-    resumeSkills.textContent = skillsInput.value || 'Not provided';
-    // Show the resume
-    document.getElementById('resume').style.display = 'block';
+generateResumeButton === null || generateResumeButton === void 0 ? void 0 : generateResumeButton.addEventListener('click', function () {
+    // Ensure the elements exist before accessing them
+    if (resumeName && resumeEmail && resumeDegree && resumeSchool && resumeGradYear && resumeWorkExperience && resumeSkills) {
+        // Fill resume with input data
+        resumeName.textContent = (nameInput === null || nameInput === void 0 ? void 0 : nameInput.value) || 'Not provided';
+        resumeEmail.textContent = (emailInput === null || emailInput === void 0 ? void 0 : emailInput.value) || 'Not provided';
+        resumeDegree.textContent = (degreeInput === null || degreeInput === void 0 ? void 0 : degreeInput.value) || 'Not provided';
+        resumeSchool.textContent = (schoolInput === null || schoolInput === void 0 ? void 0 : schoolInput.value) || 'Not provided';
+        resumeGradYear.textContent = (gradYearInput === null || gradYearInput === void 0 ? void 0 : gradYearInput.value) || 'Not provided';
+        resumeWorkExperience.textContent = (workExperienceInput === null || workExperienceInput === void 0 ? void 0 : workExperienceInput.value) || 'Not provided';
+        resumeSkills.textContent = (skillsInput === null || skillsInput === void 0 ? void 0 : skillsInput.value) || 'Not provided';
+        // Show the resume
+        var resumeElement = document.getElementById('resume');
+        if (resumeElement) {
+            resumeElement.style.display = 'block';
+        }
+    }
 });
 // Generate unique URL
-shareResumeButton.addEventListener('click', function () {
-    var baseUrl = window.location.href;
-    var resumeId = btoa($, { nameInput: nameInput, : .value } - $, { emailInput: emailInput, : .value });
-    var shareableUrl = $, baseUrl = (void 0).baseUrl, resumeId = $, resumeId = (void 0).resumeId;
-    alert(Your, unique, resume, URL, $, { shareableUrl: shareableUrl });
-    navigator.clipboard.writeText(shareableUrl); // Copy the URL to clipboard
+shareResumeButton === null || shareResumeButton === void 0 ? void 0 : shareResumeButton.addEventListener('click', function () {
+    if (nameInput && emailInput) {
+        var baseUrl = window.location.href;
+        var resumeId = btoa("".concat(nameInput.value, "-").concat(emailInput.value));
+        var shareableUrl = "".concat(baseUrl, "?resumeId=").concat(resumeId);
+        alert("Your unique resume URL: ".concat(shareableUrl));
+        navigator.clipboard.writeText(shareableUrl); // Copy the URL to clipboard
+    }
 });
 // Download Resume as PDF
-downloadPdfButton.addEventListener('click', function () {
-    var jsPDF = window.jspdf.jsPDF;
+downloadPdfButton === null || downloadPdfButton === void 0 ? void 0 : downloadPdfButton.addEventListener('click', function () {
+    // Ensure jsPDF is loaded correctly from CDN
+    var jsPDF = window.jspdf.jsPDF; // Access jsPDF from the loaded library
     var doc = new jsPDF();
-    // Fill PDF content
-    doc.text(Name, $, { resumeName: resumeName, : .textContent }, 10, 10);
-    doc.text(Email, $, { resumeEmail: resumeEmail, : .textContent }, 10, 20);
-    doc.text(Degree, $, { resumeDegree: resumeDegree, : .textContent }, 10, 30);
-    doc.text(School, $, { resumeSchool: resumeSchool, : .textContent }, 10, 40);
-    doc.text(Graduation, Year, $, { resumeGradYear: resumeGradYear, : .textContent }, 10, 50);
-    doc.text(Work, Experience, $, { resumeWorkExperience: resumeWorkExperience, : .textContent }, 10, 60);
-    doc.text(Skills, $, { resumeSkills: resumeSkills, : .textContent }, 10, 70);
-    // Save as PDF
-    doc.save('resume.pdf');
+    // Check if resume fields exist and are populated
+    if (resumeName && resumeEmail && resumeDegree && resumeSchool && resumeGradYear && resumeWorkExperience && resumeSkills) {
+        // Add text to the PDF from resume content
+        doc.text("Name: ".concat(resumeName.textContent), 10, 10);
+        doc.text("Email: ".concat(resumeEmail.textContent), 10, 20);
+        doc.text("Degree: ".concat(resumeDegree.textContent), 10, 30);
+        doc.text("School: ".concat(resumeSchool.textContent), 10, 40);
+        doc.text("Graduation Year: ".concat(resumeGradYear.textContent), 10, 50);
+        doc.text("Work Experience: ".concat(resumeWorkExperience.textContent), 10, 60);
+        doc.text("Skills: ".concat(resumeSkills.textContent), 10, 70);
+        // Save the PDF with a specific filename
+        doc.save('resume.pdf');
+    }
 });
 // Load resume from URL if present
-// window.onload =
+window.onload = function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var resumeId = urlParams.get('resumeId');
+    if (resumeId && nameInput && emailInput && generateResumeButton) {
+        var decodedResume = atob(resumeId).split('-');
+        nameInput.value = decodedResume[0] || '';
+        emailInput.value = decodedResume[1] || '';
+        generateResumeButton.click(); // Automatically generate resume on load
+    }
+};

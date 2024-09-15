@@ -10,32 +10,34 @@
 </head>
 <body>
   <div class="container">
-    <h1>Resume Builder</h1>
-
+    <marquee  scrollamount="15" scrolldelay="85">
+      <h1>Resume Builder</h1>
+  </marquee>
+  
     <form id="resume-form">
       <h2>Personal Information</h2>
-      <label for="name">Name:</label>
+      <label for="name">Name:</label> <br/>
       <input type="text" id="name" placeholder="Enter your name" required><br>
       
-      <label for="email">Email:</label>
+      <label for="email">Email:</label> <br/>
       <input type="email" id="email" placeholder="Enter your email" required><br>
       
       <h2>Education</h2>
-      <label for="degree">Degree:</label>
+      <label for="degree">Degree:</label> <br/>
       <input type="text" id="degree" placeholder="Enter your degree" required><br>
       
-      <label for="school">School/University:</label>
+      <label for="school">School/University:</label> <br/>
       <input type="text" id="school" placeholder="Enter your school or university" required><br>
       
-      <label for="grad-year">Graduation Year:</label>
+      <label for="grad-year">Graduation Year:</label> <br/>
       <input type="number" id="grad-year" placeholder="Enter your graduation year" required><br>
       
       <h2>Work Experience</h2>
-      <label for="work-experience">Work Experience:</label>
+      <label for="work-experience">Work Experience:</label> <br/>
       <textarea id="work-experience" placeholder="Enter your work experience" required></textarea><br>
       
       <h2>Skills</h2>
-      <label for="skills">Skills:</label>
+      <label for="skills">Skills:</label> <br/>
       <textarea id="skills" placeholder="Enter your skills" required></textarea><br>
 
       <button type="button" id="generate-resume">Generate Resume</button>
