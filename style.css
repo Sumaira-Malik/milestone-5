@@ -2,49 +2,51 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-     background-image: url(https://woorise.com/wp-content/uploads/2021/03/Online-event-registration.png); 
+    background-image: url(https://woorise.com/wp-content/uploads/2021/03/Online-event-registration.png);
     background-repeat: no-repeat;
     width: 100%;
-    height: 100%; 
+    height: 100%;
     background-size: cover;
-  }
-  
+}
+
 .container {
     width: 50%;
     margin: auto;
-    
 }
-#resume-form{
+
+#resume-form {
     border-radius: 15px;
-    box-shadow: 0 0  25px #1102021a;
+    box-shadow: 0 0 25px #1102021a;
     background-image: url(https://woorise.com/wp-content/uploads/2021/03/Online-event-registration.png);
     padding: 20px;
     border: 2px solid white;
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
-
-
 }
-marquee{
+
+marquee {
     font-size: 1.5rem;
     width: 60%;
-    
 }
+
 h1 {
     text-align: center;
     margin-top: 20px;
-    color:white;
+    color: white;
 }
-h2{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.8rem;
     text-align: center;
     cursor: pointer;
 }
-h2:hover{
+
+h2:hover {
     text-decoration: underline;
 }
-label{
+
+label {
     font-size: 1.2rem;
     color: white;
 }
@@ -57,16 +59,17 @@ form input, form textarea {
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.192);
 }
-::placeholder{
+
+::placeholder {
     color: white;
 }
 
 button {
-    background-color: #9260ffd8;    
+    background-color: #9260ffd8;
     border-radius: 15px;
-    border:2px solid white;
+    border: 2px solid white;
     margin: 10px;
-    color:white;
+    color: white;
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
@@ -76,21 +79,52 @@ button {
 button:hover {
     transform: scale(1.1);
     transition: 1s;
-
 }
 
+/* Adjustments for medium-sized screens (tablets) */
 @media (max-width: 1099px) {
     .container {
-        width: 100%;
+        width: 80%;
         margin: 10px;
     }
-    input,textarea{
+    form input, form textarea {
         width: 95%;
-        padding: 15px;
-        margin: 10px 5px;
     }
-} 
- 
- 
+}
 
+/* Adjustments for smaller screens (mobile) */
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+    }
+    .container {
+        width: 95%;
+        margin: 5px;
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
 
+/* Further adjustments for extra-small screens */
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.2rem;
+    }
+    form input, form textarea {
+        padding: 8px;
+        margin: 8px 0;
+    }
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
